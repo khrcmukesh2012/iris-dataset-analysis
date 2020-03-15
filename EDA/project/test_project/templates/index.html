@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Signup</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+  <a class="navbar-brand" href="/home/">Home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">AboutUs <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/login/">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/signup/">SignUp</a>
+      </li>
+      
+    </ul>
+  </div>
+ </nav>
+<div style="width: 40%;margin: 100px auto">
+    {% if registered %}
+    <strong>thank you for registering!</strong>
+
+    {% else %}
+
+     <h2 style="text-align: center;margin-bottom: 20px">Register Here</h2>
+    <form id="user_form" method="post" enctype="multipart/form-data">
+
+        {% csrf_token %}
+        {% for error in user_form.non_field_errors %}
+            <div class="form-group has-errors text-danger small">
+                {{error}}
+            </div>
+            {% endfor %}
+            {% for field in user_form %}
+            <div class="form-group has-errors text-danger small">
+                {{field.errors}}
+            </div>
+            <div class="form-group has-errors text-danger small">
+            </div>
+            <div class="form-group">
+                {{field}}
+            </div>
+        {% endfor %}
+
+
+        <!-- Provide a button to click to submit the form. -->
+        <input type="submit" name="submit" value="Register" class="btn btn-primary btn-lg m-3 p-1" />
+    </form>
+    {% endif %}
+</div>
+</body>
+</html>

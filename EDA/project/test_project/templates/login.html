@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Is anyone getting tired of repeatedly entering the header over and over?? -->
+        <title>login</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    </head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+  <a class="navbar-brand" href="/home/">Home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">AboutUs <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/login/">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/signup/">SignUp</a>
+      </li>
+      
+    </ul>
+  </div>
+ </nav>
+<div style="width: 40%;margin: 100px auto">
+    <h1 style="text-align: center;margin-bottom: 20px">Login Here</h1>
+<form  method="post" >
+    {% csrf_token %}
+    <input type="text" name="username" value="" size="50" class="form-control m-2" placeholder="Username" />
+    <input type="password" name="password" value="" size="50" class="form-control m-2" placeholder="password" />
+    <input type="submit" value="Login" class="btn btn-primary btn-lg m-3 p-1" />
+    <a href="#">Forget Password</a>||<a href="/signup/">New User SignUp Here</a>
+</form>
+</div>
+</body>
+</html>
